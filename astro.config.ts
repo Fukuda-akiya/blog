@@ -30,10 +30,10 @@ const config = defineConfig({
 		mdx(),
 		sitemap(),
 		spectre({
-			name: 'Spectre',
+			name: 'Dream Machine',
 			openGraph: {
 				home: {
-					title: 'Spectre',
+					title: '',
 					description: 'A minimalistic theme for Astro.',
 				},
 				blog: {
@@ -44,6 +44,7 @@ const config = defineConfig({
 					title: 'Projects',
 				},
 			},
+			/*
 			giscus: {
 				repository: GISCUS_REPO,
 				repositoryId: GISCUS_REPO_ID,
@@ -55,6 +56,7 @@ const config = defineConfig({
 				emitMetadata: GISCUS_EMIT_METADATA === 'true',
 				lang: GISCUS_LANG,
 			},
+			*/
 		}),
 	],
 	adapter: node({
