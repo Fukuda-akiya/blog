@@ -53,10 +53,4 @@ export default defineConfig({
             },
         }),
     ],
-    // 3. adapterの設定はGitHub Pagesでは通常不要です
-    /*
-    adapter: node({
-        mode: 'standalone',
-    }),
-    */
 });
