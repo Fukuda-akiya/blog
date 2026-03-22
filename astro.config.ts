@@ -19,49 +19,44 @@ const {
 	GISCUS_LANG,
 } = loadEnv(process.env.NODE_ENV!, process.cwd(), '');
 
-// https://astro.build/config
-const config = defineConfig({
-	site: 'https://spectre.lou.gg',
-	output: 'static',
-	integrations: [
-		expressiveCode({
-			themes: [spectreDark],
-		}),
-		mdx(),
-		sitemap(),
-		spectre({
-			name: 'Dream Machine',
-			openGraph: {
-				home: {
-					title: '',
-					description: 'A minimalistic theme for Astro.',
-				},
-				blog: {
-					title: 'Blog',
-					description: 'News and guides for Spectre.',
-				},
-				projects: {
-					title: 'Projects',
-				},
-			},
-			/*
-			giscus: {
-				repository: GISCUS_REPO,
-				repositoryId: GISCUS_REPO_ID,
-				category: GISCUS_CATEGORY,
-				categoryId: GISCUS_CATEGORY_ID,
-				mapping: GISCUS_MAPPING as GiscusMapping,
-				strict: GISCUS_STRICT === 'true',
-				reactionsEnabled: GISCUS_REACTIONS_ENABLED === 'true',
-				emitMetadata: GISCUS_EMIT_METADATA === 'true',
-				lang: GISCUS_LANG,
-			},
-			*/
-		}),
-	],
-	adapter: node({
-		mode: 'standalone',
-	}),
-});
+export default defineConfig({
+    // 1. あなたのGitHub PagesのURLに修正
+    // 例: 'https://your-name.github.io'
+    site: 'https://<あなたのユーザー名>.github.io',
 
-export default config;
+    // 2. リポジトリ名が「ユーザー名.github.io」以外なら、リポジトリ名を指定
+    // 例: '/my-blog' (先頭のスラッシュが必要)
+    base: '/<リポジトリ名>', 
+
+    output: 'static', // GitHub Pagesは静的サイトなのでstaticでOK
+    integrations: [
+        expressiveCode({
+            themes: [spectreDark],
+        }),
+        mdx(),
+        sitemap(),
+        spectre({
+            name: 'Dream Machine', // ここをあなたのサイト名に変えてもいいですね
+            openGraph: {
+                home: {
+                    title: '',
+                    description: 'A minimalistic blog about Cinema and Science.',
+                },
+                blog: {
+                    title: 'Blog',
+                    description: 'Thoughts and reflections.',
+                },
+                // Projectsを消したので、ここは空欄か削除でもOK
+                projects: {
+                    title: '', 
+                },
+            },
+        }),
+    ],
+    // 3. adapterの設定はGitHub Pagesでは通常不要です
+    /*
+    adapter: node({
+        mode: 'standalone',
+    }),
+    */
+});
