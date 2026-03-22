@@ -22,11 +22,11 @@ const {
 export default defineConfig({
     // 1. あなたのGitHub PagesのURLに修正
     // 例: 'https://your-name.github.io'
-    site: 'https://<あなたのユーザー名>.github.io',
+    site: 'https://Fukuda-akiya.github.io',
 
     // 2. リポジトリ名が「ユーザー名.github.io」以外なら、リポジトリ名を指定
     // 例: '/my-blog' (先頭のスラッシュが必要)
-    base: '/<リポジトリ名>', 
+    base: '/blog', 
 
     output: 'static', // GitHub Pagesは静的サイトなのでstaticでOK
     integrations: [
